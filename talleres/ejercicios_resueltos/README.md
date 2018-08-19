@@ -49,7 +49,7 @@ complete program.
 
 **answer**: 
 
-5. Write a program that prompts the user to enter three sets of five double numbers each.
+5. (**This exercise is not solved, it's employed to to understand the execise 6**) Write a program that prompts the user to enter three sets of five double numbers each.
 (You may assume the user responds correctly and doesn’t enter non-numeric data.) The
 program should accomplish all of the following:
    1. Store the information in a 3×5 array.
@@ -62,3 +62,10 @@ approach to handling arrays. Accomplish task “b” by using a function that co
 and returns the average of a one-dimensional array; use a loop to call this function three
 times. The other tasks should take the entire array as an argument, and the functions
 performing tasks “c” and “d” should return the answer to the calling program.
+
+**not solved**
+
+6. Do Programming Exercise 5, but use variable-length array function parameters. Design and test a function that fetches the next n characters from input (including blanks, tabs, and newlines), storing the results in an array whose address is passed as an argument.
+
+**answer**: 
+
