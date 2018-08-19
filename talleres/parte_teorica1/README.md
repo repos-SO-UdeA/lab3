@@ -176,26 +176,71 @@ float rootbeer[10], things[10][5], *pf, value = 2.2;
 int i = 3;
 ```
 
-Identify each of the following statements as valid or invalid:
-a. rootbeer[2] = value;
-b. scanf("%f", &rootbeer );
-c. rootbeer = value;
-d. printf("%f", rootbeer);
-e. things[4][4] = rootbeer[3];
-f. things[5] = rootbeer;
-g. pf = value;
-h. pf = rootbeer;
+Identify each of the following statements as valid (V) or invalid (I):
 
-**Answer**: V = Valid; I = Invalid
+a. ```C rootbeer[2] = value;```
 
-a. V
-b. I
-c. I
-d. I
-e. V
-f. I
-g. I
-h. V
+**Answer**:
+
+```
+V
+```
+
+b. ```C scanf("%f", &rootbeer );```
+
+**Answer**:
+
+```
+I
+```
+
+c. ```C rootbeer = value;```
+
+**Answer**:
+
+```
+I
+```
+
+d. ```C printf("%f", rootbeer);```
+
+**Answer**:
+
+```
+I
+```
+
+e. ```C things[4][4] = rootbeer[3];```
+
+**Answer**:
+
+```
+V
+```
+
+f. ```C things[5] = rootbeer;```
+
+**Answer**:
+
+```
+I
+```
+
+g. ```C pf = value;```
+
+**Answer**:
+
+```
+I
+```
+
+h. ```C pf = rootbeer;```
+
+**Answer**:
+
+```
+V
+```
 
 7. Declare an 800×600 array of int .
 
@@ -214,38 +259,104 @@ short clops[10][30];
 long shots[5][10][15];
 ```
 
-a. Show a function prototype and a function call for a traditional void function that processes trots and also for a C function using a VLA.
+a. Show a function prototype and a function call for a traditional void function that processes trots and also for a C function using a VLA (Variable-Length Arrays).
 
+**Answer**:
 
-b. Show a function prototype and a function call for a traditional void function that processes clops and also for a C function using a VLA.
+Function prototype and a function call for a traditional void function:
 
+```C
+// Prototype
+void process(double array[], int t);
+// Fuction Call
+process(trops,20);
+```
 
+Function prototype and a function call for a C function using a VLA (Variable-Length Arrays):
 
-c. Show a function prototype and a function call for a traditional void function that processes shots and also for a C function using a VLA.
+```C
+// Prototype
+void processVLA(int t, double array[]);
+// Fuction Call
+processVLA(20, trops);
+```
 
+b. Show a function prototype and a function call for a traditional void function that processes clops and also for a C function using a VLA (Variable-Length Arrays).
 
+**Answer**:
 
-Rta:
+Function prototype and a function call for a traditional void function:
 
-void process(double vec[], int tam); 
-process(trots, 20);
+```C
+// Prototype
+void process(short array2D[30], int rows);
+// Fuction Call
+process(clops,10);
+```
 
-void process(int cols, short M[][cols]); 
-process(30, M);
+Function prototype and a function call for a C function using a VLA (Variable-Length Arrays):
 
+```C
+// Prototype
+void processVLA(int rows, int cols, short array2D[rows][cols]);
+// Fuction Call
+processVLA(10, 30, clops);
+```
 
+c. Show a function prototype and a function call for a traditional void function that processes shots and also for a C function using a VLA (Variable-Length Arrays).
 
-12.
-Here are two function prototypes:
+**Answer**:
+
+Function prototype and a function call for a traditional void function:
+
+```C
+// Prototype
+void process(short array3D[10][15], int rows);
+// Fuction Call
+process(shots,5);
+```
+
+Function prototype and a function call for a C function using a VLA (Variable-Length Arrays):
+
+```C
+// Prototype
+void processVLA(int m, int n, int p, short array3D[m][n][p]);
+// Fuction Call
+processVLA(5, 10, 15, shots);
+```
+
+9. Here are two function prototypes:
+
+```C
 void show(const double ar[], int n);
 // n is number of elements
 void show2(const double ar2[][3], int n); // n is number of rows
-a. Show a function call that passes a compound literal containing the values 8 , 3 , 9 ,
-and 2 to the show() function.
-b. Show a function call that passes a compound literal containing the values 8 , 3 ,
-and 9 as the first row and the values 5 , 4 , and 1 as the second row to the show2()
-function.
+```
 
-***********************************************************************************************
+a. Show a function call that passes a compound literal containing the values 8 , 3 , 9 , and 2 to the show() function.
 
+**Answer**:
+
+```C
+// Forma normalita
+double v[] = {8, 3, 9, 2};
+show(v, 4);
+
+// Forma no tan normalita
+show( (int [4]) {8,3,9,2}, 4);
+```
+
+b. Show a function call that passes a compound literal containing the values 8 , 3 , and 9 as the first row and the values 5, 4, and 1 as the second row to the show2() function.
+
+```C
+// Forma normalita
+double M[2][3] = { 
+                   {8, 3, 9},
+                   {5, 4, 1}
+                 };
+show(v, 2);
+
+// Forma no tan normalita
+show( (int [][3]) {{8, 3, 9},{5, 4, 1}}, 2);
+```
 
