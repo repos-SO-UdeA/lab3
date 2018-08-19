@@ -49,7 +49,7 @@ complete program.
 
 **answer**: 
 
-5. (**This exercise is not solved, it's employed to to understand the execise 6**) Write a program that prompts the user to enter three sets of five double numbers each.
+5. **Description**: Write a program that prompts the user to enter three sets of five double numbers each.
 (You may assume the user responds correctly and doesn’t enter non-numeric data.) The
 program should accomplish all of the following:
    1. Store the information in a 3×5 array.
@@ -63,9 +63,47 @@ and returns the average of a one-dimensional array; use a loop to call this func
 times. The other tasks should take the entire array as an argument, and the functions
 performing tasks “c” and “d” should return the answer to the calling program.
 
-**not solved**
-
-6. Do Programming Exercise 5, but use variable-length array function parameters. Design and test a function that fetches the next n characters from input (including blanks, tabs, and newlines), storing the results in an array whose address is passed as an argument.
+Do Programming problem of the description using variable-length array function parameters. Design and test a function that fetches the next n characters from input (including blanks, tabs, and newlines), storing the results in an array whose address is passed as an argument.
 
 **answer**: 
 
+6. Design and test a function that fetches the next n characters from input (including blanks, tabs, and newlines), storing the results in an array whose address is passed as an argument.
+
+**answer**: 
+
+7. Design and test a function that reads the first word from a line of input into an array and discards the rest of the line. It should skip over leading whitespace. Define a word as a sequence of characters with no blanks, tabs, or newlines in it. Use getchar().
+
+**answer**: 
+
+8. Write a function called string_in() that takes two string pointers as arguments. If the second string is contained in the first string, have the function return the address at which the contained string begins. For instance, string_in("hats", "at") would return the address of the a in hats . Otherwise, have the function return the null pointer. Test the function in a complete program that uses a loop to provide input values for feeding to the function.
+
+**answer**: 
+
+9. Write a function that takes a string as an argument and removes the spaces from the string. Test it in a program that uses a loop to read lines until you enter an empty line. The program should apply the function to each input string and display the result.
+
+**answer**: 
+
+10. Write a program that reads input until end-of-file and echoes it to the display. Have the program recognize and implement the following command-line arguments:
+
+```
+-p Print input as is
+-u Map input to all uppercase
+-l Map input to all lowercase
+```
+
+Also, if there are no command-line arguments, let the program behave as if the –p argument had been used.
+
+**answer**: 
+
+11. Write a program that fits the following recipe:
+    1. Externally define a name structure template with two members: a string to hold the first name and a string to hold the second name.
+    2. Externally define a student structure template with three members: a name structure, a grade array to hold three floating-point scores, and a variable to hold the average of those three scores.
+    3. Have the main() function declare an array of CSIZE (with CSIZE = 4 ) student structures and initialize the name portions to names of your choice. Use functions to perform the tasks described in parts iV., v., vi., and vii.
+    4. Interactively acquire scores for each student by prompting the user with a student name and a request for scores. Place the scores in the grade array portion of the appropriate structure. The required looping can be done in main() or in the function, as you prefer.
+    5. Calculate the average score value for each structure and assign it to the proper member.
+    6. Print the information in each structure.
+    7. Print the class average for each of the numeric structure members.
+
+**answer**:
+
+12.     
