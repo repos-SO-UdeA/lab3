@@ -1,71 +1,139 @@
+# Taller resuelto de repaso de los conceptos vistos sobre vectores, matrices y apuntadores.
+
+> **Objetivos**
+> * Reforzar los conceptos teoricos tratados.
+> * Comprender los aspectos claves relacionados con la sintaxis en lenguaje C relacionados con vectores, matrices y apuntadores. 
+> * Ir ganando experiencia para la resolución de ejercicios empleando estas estructuras.
+
+## Nota
+
+Estos ejercicios son una transcripción al pie de la letra de algunas de las **review questions** del libro **C Primer Plus (6th Edition)** relacionados con los temas de interes para la presente sección. Para el caso se colocan los enunciados seguidos de las respuestas.
+
+## solved review questions
+
 1. What will this program print?
 
+```C
 #include <stdio.h>
-int main(void)
-{
-int ref[] = {8, 4, 0, 2};
-int *ptr;
-int index;
-for (index = 0, ptr = ref; index < 4; index++, ptr++)
-printf("%d %d\n", ref[index], *ptr);
-return 0;
-}
 
-Rta: 
+int main(void) {
+  int ref[] = {8, 4, 0, 2};
+  int *ptr;
+  int index;
+  for (index = 0, ptr = ref; index < 4; index++, ptr++)
+  printf("%d %d\n", ref[index], *ptr);
+  return 0;
+}
+```
+
+**Answer**:
+
+```
 8 8
 4 4
 0 0
 2 2
+```
 
-5.
-What is the value of *ptr and of *(ptr + 2) in each case?
-a.
+2. What is the value of *ptr and of *(ptr + 2) in each case?
+
+a. 
+```C
 int *ptr;
 int torf[2][2] = {12, 14, 16};
 ptr = torf[0];
-
-Rta: 
+```
+**Answer**:
+```
 *ptr --> 12
 *(ptr + 2) --> 16
-
-b.
+```
+b. 
+```C
 int * ptr;
 int fort[2][2] = { {12}, {14,16} };
 ptr = fort[0];
+```
 
-Rta:
+**Answer**:
+```
 *ptr --> 12
 *(ptr + 2) --> 14
+```
 
-6.
-Suppose you have the following declaration:
-int grid[30][100];.
+3. Suppose you have the following declaration:
+
+```C
+int grid[30][100];
+```
+
 a. Express the address of grid[22][56] one way.
+
+**Answer**:
+
+```
+Forma 1: &grid[22][56]
+```
+
 b. Express the address of grid[22][0] two ways.
+
+**Answer**:
+```
+Forma 1: &grid[22][0]
+Forma 2: grid[22]
+```
+
 c. Express the address of grid[0][0] three ways.
 
-Rta:
+**Answer**:
+```
+Forma 1: &grid[0][0]
+Forma 2: grid[0]
+Forma 3: (int *)grid
+```
 
-dir(grid[22][56]) --> &grid[22][56]
-dir(grid[22][0]) --> &grid[22][0] = grid[22]
-dir(grid[0][0]) --> &grid[0][0] = grid[0] = (int *)grid
-
-7.
-Create an appropriate declaration for each of the following variables:
+4. Create an appropriate declaration for each of the following variables:
 a. digits is an array of 10 ints .
-b. rates is an array of six floats .
+
+**Answer**:
+
+```C
+int digits[10];
+```
+
+b. rates is an array of six floats.
+
+**Answer**:
+
+```C
+float rates[6];
+```
+
 c. mat is an array of three arrays of five integers.
+
+**Answer**:
+
+```C
+int mat[3][5];
+```
+
 d. psa is an array of 20 pointers to char .
+
+**Answer**:
+
+```C
+char *psa[20];
+```
+
 e. pstr is a pointer to an array of 20 chars .
 
-Rta:
-int digits[10];
-float rates[6];
-int mat[3][5];
-char *psa[20];
-char (*pstr)[20];
+**Answer**:
 
-8
+```C
+char (*pstr)[20];
+```
+
+5. Create an appropriate declaration for each of the following variables:
 a. Declare an array of six int s and initialize it to the values 1 , 2 , 4 , 8 , 16 , and 32 .
 b. Use array notation to represent the third element (the one with the value 4 ) of the
 array in part a.
