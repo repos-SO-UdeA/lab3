@@ -135,24 +135,47 @@ char (*pstr)[20];
 
 5. Create an appropriate declaration for each of the following variables:
 a. Declare an array of six int s and initialize it to the values 1 , 2 , 4 , 8 , 16 , and 32 .
-b. Use array notation to represent the third element (the one with the value 4 ) of the
-array in part a.
-c. Assuming C99/C11 rules are in effect, declare an array of 100 int s and initialize it
-so that the last element is -1 ; don’t worry about the other elements.
-d. Assuming C99/C11 rules are in effect, declare an array of 100 int s and initialize
-it so that elements 5, 10, 11, 12, and 3 are 101 ; don’t worry about the other
-elements.
 
-Rta: 
+**Answer**:
+
+```C
 int s[6] =  {1, 2, 4, 8, 16, 32};
-s[2];
-int s[100] = {99:-1}; <--> int s[100] = {[99] = -1};
-int s[100] = {[5] = 101, [10] = 101, [11] = 101, [12] = 101, [3] = 101}; <--> int s[100] = {[3] = 101, [5] = 101, [10] = 101, 101, 101};
+```
 
-9.
-Suppose you have these declarations:
+b. Use array notation to represent the third element (the one with the value 4 ) of the array in part a.
+
+**Answer**:
+
+```C
+s[2];
+```
+
+c. Assuming C99/C11 rules are in effect, declare an array of 100 int s and initialize it so that the last element is -1 ; don’t worry about the other elements.
+
+**Answer**:
+
+```C
+int s[100] = {99:-1}; <--> int s[100] = {[99] = -1};
+```
+
+d. Assuming C99/C11 rules are in effect, declare an array of 100 int s and initialize it so that elements 5, 10, 11, 12, and 3 are 101 ; don’t worry about the other elements.
+
+**Answer**:
+
+```C
+// Forma 1
+int s[100] = {[5] = 101, [10] = 101, [11] = 101, [12] = 101, [3] = 101};
+// Forma 2
+int s[100] = {[3] = 101, [5] = 101, [10] = 101, 101, 101};
+```
+
+6. Suppose you have these declarations:
+
+```C
 float rootbeer[10], things[10][5], *pf, value = 2.2;
 int i = 3;
+```
+
 Identify each of the following statements as valid or invalid:
 a. rootbeer[2] = value;
 b. scanf("%f", &rootbeer );
@@ -163,31 +186,44 @@ f. things[5] = rootbeer;
 g. pf = value;
 h. pf = rootbeer;
 
-Rta:
+**Answer**: V = Valid; I = Invalid
+
 a. V
 b. I
 c. I
 d. I
 e. V
-f. V --> I
+f. I
 g. I
 h. V
 
-10. Declare an 800×600 array of int .
+7. Declare an 800×600 array of int .
 
+**Answer**:
+
+```C
 int A[800][600];
+```
 
-11. 
-Here are three array declarations:
+
+8. Here are three array declarations:
+
+```C
 double trots[20];
 short clops[10][30];
 long shots[5][10][15];
-a. Show a function prototype and a function call for a traditional void function that
-processes trots and also for a C function using a VLA.
-b. Show a function prototype and a function call for a traditional void function that
-processes clops and also for a C function using a VLA.
-c. Show a function prototype and a function call for a traditional void function that
-processes shots and also for a C function using a VLA.
+```
+
+a. Show a function prototype and a function call for a traditional void function that processes trots and also for a C function using a VLA.
+
+
+b. Show a function prototype and a function call for a traditional void function that processes clops and also for a C function using a VLA.
+
+
+
+c. Show a function prototype and a function call for a traditional void function that processes shots and also for a C function using a VLA.
+
+
 
 Rta:
 
