@@ -104,7 +104,7 @@ typedef struct lens {      /* lens descriptor */
   char brand[30];          /* brand name */
 } LENS;
 ```
-   i. Declare a 10-element array of the indicated structure. Then, using individual member assignment (or the string equivalent), let the third element describe a Remarkatar lens with a focal length of 500 mm and an aperture of f/2.0.
+   a. Declare a 10-element array of the indicated structure. Then, using individual member assignment (or the string equivalent), let the third element describe a Remarkatar lens with a focal length of 500 mm and an aperture of f/2.0.
 
 **Answer**:
 
@@ -115,12 +115,159 @@ lensFormulas[2].fstop = 2.0;
 strcpy(lensFormulas[2].brand, "Remarkatar");
 ```
 
-   ii. Repeat part a., but use an initialization list with a designated initializer in the declaration rather than using separate assignment statements for each member.
+   b. Repeat part a., but use an initialization list with a designated initializer in the declaration rather than using separate assignment statements for each member.
 
 **Answer**:
 
 ```C
 LENS bigEye[10] = { [2] = {500, 2, "Remarkatar"} };
 ```
+
+6. Consider the following programming fragment:
+
+```C
+struct name {
+  char first[20];
+  char last[20];
+};
+
+struct bem {
+  int limbs;
+  struct name title;
+  char type[30];
+};
+
+struct bem * pb;
+struct bem deb = {
+                   6,
+                   {"Berbnazel", "Gwolkapwolk"},
+                   "Arcturan"
+};
+
+pb = &deb;
+```
+a. What would each of the following statements print?
+
+```C
+printf("%d\n", deb.limbs);
+printf("%s\n", pb->type);
+printf("%s\n", pb->type + 2);
+```
+**Answer**:
+
+```
+6
+Arcturan
+cturan
+```
+
+b. How could you represent "Gwolkapwolk" in structure notation (two ways)?
+
+**Answer**:
+
+```C
+deb.title.last  // Using the variable (deb) struct bem
+pb->title.last  // Using the pointer (pb) to the variable (deb) struct bem
+```
+c. Write a function that takes the address of a bem structure as its argument and prints the contents of that structure in the form shown here:
+
+```
+Berbnazel Gwolkapwolk is a 6-limbed Arcturan.
+```
+
+**Answer**:
+
+```C
+
+/* Declaration (or header) of the function */
+void prbem (const struct bem * pbem );    // void prbem (const struct bem *);
+
+/* Definition of the function */
+void prbem (const struct bem * pbem ) {
+  printf("%s %s is a %d-limbed %s.\n", pbem->title.first,
+  pbem->title.last, pbem->limbs, pbem->type);
+}
+```
+
+7. Consider the following declarations:
+
+```C
+struct fullname {
+  char fname[20];
+  char lname[20];
+};
+struct bard {
+  struct fullname name;
+  int born;
+  int died;
+};
+
+struct bard willie;
+struct bard *pt = &willie;
+```
+a. Identify the born member of the willie structure using the willie identifier.
+
+**Answer**:
+
+```C
+willie.born
+```
+
+b. Identify the born member of the willie structure using the pt identifier.
+
+**Answer**:
+
+```C
+pt->born
+```
+
+c. Use a scanf() call to read in a value for the born member using the willie identifier.
+
+**Answer**:
+
+```C
+scanf("%d", &willie.born);
+```
+
+d. Use a scanf() call to read in a value for the born member using the pt identifier.
+
+**Answer**:
+
+```C
+scanf("%d", &pt->born);
+```
+
+e. Use a scanf() call to read in a value for the lname member of the name member using the willie identifier.
+
+**Answer**:
+
+```C
+scanf("%s", willie.name.lname);
+```
+
+f. Use a scanf() call to read in a value for the lname member of the name member using the pt identifier.
+
+**Answer**:
+
+```C
+scanf("%s", pt->name.lname);
+```
+
+g. Construct an identifier for the third letter of the first name of someone described by the willie variable.
+
+**Answer**:
+
+```C
+willie.name.fname[2]
+```
+
+h. Construct an expression representing the total number of letters in the first and last names of someone described by the willie variable.
+
+**Answer**:
+
+```C
+strlen(willie.name.fname) + strlen(willie.name.lname)
+```
+
 
 
