@@ -196,6 +196,7 @@ struct fullname {
   char fname[20];
   char lname[20];
 };
+
 struct bard {
   struct fullname name;
   int born;
@@ -267,6 +268,73 @@ h. Construct an expression representing the total number of letters in the first
 
 ```C
 strlen(willie.name.fname) + strlen(willie.name.lname)
+```
+
+8. Define a structure template suitable for holding the following items: the name of an automobile, its horsepower, its EPA city-driving MPG rating, its wheelbase, and its year. Use car as the template tag.
+
+**Answer**:
+
+```C
+struct car {
+  char name[20];
+  float hp;
+  float epampg;
+  float wbase;
+  int year;
+};
+```
+
+9. Suppose you have this structure:
+
+```C
+struct gas {
+  float distance;
+  float gals;
+  float mpg;
+};
+```
+
+a. Devise a function that takes a struct gas argument. Assume that the passed structure contains the distance and gals information. Have the function calculate the correct value for the mpg member and return the now completed structure.
+
+**Answer**:
+
+```C
+/* Declaration */
+struct gas mpgs(struct gas trip);  // struct gas mpgs(struct gas); 
+
+/* Definition */
+struct gas mpgs(struct gas trip) {
+  if (trip.gals > 0)
+    trip.mpg = trip.distance / trip.gals ;
+  else
+    trip.mpg = -1.0;
+  return trip;
+}
+
+/* Calling example */
+struct gas idaho = {430.0, 14.8};    // set first two members
+idaho = mpgs(idaho);                 // reset structure
+```
+
+b. Devise a function that takes the address of a struct gas argument. Assume that the passed structure contains the distance and gals information. Have the function calculate the correct value for the mpg member and assign it to the appropriate member.
+
+**Answer**:
+
+```C
+/* Declaration */
+void set_mpgs(struct gas * ptrip);   // void set_mpgs(struct gas *);
+
+/* Definition */
+void set_mpgs(struct gas * ptrip) {
+  if (ptrip->gals > 0)
+    ptrip->mpg = ptrip->distance / ptrip->gals ;
+  else
+    ptrip->mpg = -1.0;
+}
+
+/* Calling example */
+struct gas ohio = {583, 17.6};    // set first two members
+set_mpgs(&ohio);                  // set third member  
 ```
 
 
